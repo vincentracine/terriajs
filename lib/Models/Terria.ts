@@ -996,6 +996,15 @@ export default class Terria {
         })
       );
     }
+
+    // Don't show welcome message if there is a story - as it will clash with story notification
+    if (
+      this.configParameters.storyEnabled &&
+      this.stories &&
+      this.stories.length
+    ) {
+      this.configParameters.showWelcomeMessage = false;
+    }
   }
 
   private async loadModelStratum(
@@ -1663,7 +1672,6 @@ async function interpretHash(
       } else if (property === "hideWelcomeMessage") {
         terria.configParameters.showWelcomeMessage = false;
       } else if (property === "start") {
-        terria.configParameters.showWelcomeMessage = false;
         try {
           // a share link that hasn't been shortened: JSON embedded in URL (only works for small quantities of JSON)
           const startData = JSON.parse(propertyValue);
