@@ -74,7 +74,9 @@ Catalog files can be edited two ways:
 |stories|no|[**Story[]**](#story)||An array of stories to be loaded.|
 |viewerMode|no|**"3d"** or **"3dSmooth"** or **"2D"** |"3d"|The id of the viewer mode to be shown initialy.|
 |homeCamera|yes|[**CameraPosition**](#CameraPosition)||Where the camera goes when you click the "home" button between the zoom-in and zoom-out buttons.|
-|baseMaps|no|[**`baseMaps`**](#base-maps)||The definition of the base maps to be shown to the user.|
+|<a id="base-maps"></a>baseMaps|no|[**`baseMaps`**](#baseMaps)|[default list of basemaps](https://github.com/TerriaJS/terriajs/blob/next/lib/Models/BaseMaps/defaultBaseMaps.ts)|The array of the base maps to be shown to the user.|
+|<a id="base-map-id"></a>baseMapId|no|**string**||The id of the baseMap user will see on the first mapLoad. The value must be an id of the catalog item from the [`baseMaps`](#base-maps) array|
+|previewBaseMapId|no|**string**|[`baseMapId`](#base-map-id)|The id of the baseMap to be used as the base map in data preview. The value must be an id of the catalog item from the [`baseMaps`](#base-maps) array.|
 |showSplitter|no|**boolean**|false|Show splitter initally.|
 |splitPosition|no|**number**|0.5|The position of splitter.|
 |workbench|no|**string[]**||List of items ids to initially add to workbench.|
@@ -225,7 +227,6 @@ Definition of the story. This can be pretty complex to define for the standard u
 |----|--------|----|-------|-----------|
 |version|yes|string|"8.0.0"|The version of share data.|
 |initSources|yes|[**CatalogFileProperties**](#catalog-file-properties)
-
 ### <a id="base-maps"></a>`baseMaps`
 
 Definition of the base map model.
