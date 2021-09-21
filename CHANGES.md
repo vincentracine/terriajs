@@ -10,11 +10,13 @@ Change Log
 * Moved region mapping `ImageryProvider` code to `lib/Table/createRegionMappedImageryProvider.ts`
 * Fix `ChartPanel` import `Result` bug.
 * Improve handling of featureInfoTemplate for composite catalog items.
+* Mobile help menu will now show a link to map user guide if it is configured in `Terria.configParameters.helpItems`.
 * Fixed the layout of items in mobile navigation
 * Fixed `withControlledVisibility` method to inherit `propTypes` of its wrapped component.
 * Added `MinMaxLevelMixin` and `MinMaxLevelTraits` to handle defining min and max scale denominator for layers.
 * Extracted function `scaleToDenominator` to core - for conversion of scale to zoom level.
 * Share/start data conversion will now only occur if `version` property is `0.x.x`. Previously, it was `version` property is **not** `8.x.x`
+* Fixes an app crash on load in iOS-Safari mobile which was happening when rendering help panel tooltips.
 * [The next improvement]
 
 #### 8.1.0
