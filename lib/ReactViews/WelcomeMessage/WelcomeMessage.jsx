@@ -204,12 +204,22 @@ export const WelcomeMessagePure = props => {
                 </Text>
                 <Spacing bottom={3} />
                 <Text textLight medium>
-                  <Trans i18nKey="welcomeMessage.welcomeMessage">
-                    Interested in data discovery and exploration?
-                    <br />
-                    Dive right in and get started or check the following help
-                    guide options.
-                  </Trans>
+                  {viewState.useSmallScreenInterface === false && (
+                    <Trans i18nKey="welcomeMessage.welcomeMessage">
+                      Interested in data discovery and exploration?
+                      <br />
+                      Dive right in and get started or check the following help
+                      guide options.
+                    </Trans>
+                  )}
+                  {viewState.useSmallScreenInterface === true && (
+                    <Trans i18nKey="welcomeMessage.welcomeMessageOnMobile">
+                      Interested in data discovery and exploration?
+                      <br />
+                      Click on Explore map data to dive right in and get
+                      started.
+                    </Trans>
+                  )}
                 </Text>
               </Box>
               <Spacing bottom={6} />
