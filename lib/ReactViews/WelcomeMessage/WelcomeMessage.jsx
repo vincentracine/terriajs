@@ -92,6 +92,7 @@ export const WelcomeMessagePure = props => {
   const [shouldTakeTour, setShouldTakeTour] = useState(false);
   const [shouldExploreData, setShouldExploreData] = useState(false);
   const [shouldOpenHelp, setShouldOpenHelp] = useState(false);
+  const [shouldOpenSearch, setShouldOpenSearch] = useState(false);
   // const {
   //   WelcomeMessagePrimaryBtnClick,
   //   WelcomeMessageSecondaryBtnClick
@@ -99,10 +100,10 @@ export const WelcomeMessagePure = props => {
   const handleClose = (persist = false) => {
     setShowWelcomeMessage(false);
     setShouldOpenHelp(false);
+    setShouldOpenSearch(false);
     if (persist) {
       viewState.terria.setLocalProperty(LOCAL_PROPERTY_KEY, true);
     }
-    setShouldOpenHelp(false);
   };
 
   useKeyPress("Escape", () => {
@@ -132,6 +133,12 @@ export const WelcomeMessagePure = props => {
           if (shouldOpenHelp) {
             setShouldOpenHelp(false);
             viewState.showHelpPanel();
+          }
+          if (shouldOpenSearch) {
+            setShouldOpenSearch(false);
+            runInAction(
+              () => (viewState.searchState.showMobileLocationSearch = true)
+            );
           }
           // Show where help is when never previously prompted
           if (!viewState.terria.getLocalProperty("helpPrompted")) {
@@ -215,9 +222,6 @@ export const WelcomeMessagePure = props => {
                   {viewState.useSmallScreenInterface === true && (
                     <Trans i18nKey="welcomeMessage.welcomeMessageOnMobile">
                       Interested in data discovery and exploration?
-                      <br />
-                      Click on Explore map data to dive right in and get
-                      started.
                     </Trans>
                   )}
                 </Text>
@@ -303,6 +307,19 @@ export const WelcomeMessagePure = props => {
                       setShouldExploreData(true);
                     }}
                   />
+                  {viewState.useSmallScreenInterface && (
+                    <>
+                      <Spacing bottom={4} />
+                      <WelcomeMessageButton
+                        buttonText={t("welcomeMessage.searchBtnText")}
+                        buttonIcon={Icon.GLYPHS.search}
+                        onClick={() => {
+                          handleClose(false);
+                          setShouldOpenSearch(true);
+                        }}
+                      />
+                    </>
+                  )}
                 </Box>
               </Box>
               <If condition={!viewState.useSmallScreenInterface}>
