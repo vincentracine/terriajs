@@ -2,7 +2,7 @@ name: npm-publish
 on:
   push:
     branches:
-      - mobx-tjs-new-routing-v2
+      - recreate-prerendering
 
 env:
   NPM_TAG: prerender
