@@ -4,6 +4,7 @@ Change Log
 #### next release (8.2.4)
 
 * Allow users to choose whether Story is included in Share
+* Added a check for disableExport in ChartPanelDownloadButton.jsx. Prevents download button rendering.
 * Fix `CatalogIndex` types
 * [The next improvement]
 
