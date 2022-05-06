@@ -3,6 +3,7 @@ Change Log
 
 #### next release (8.2.4)
 
+* Allow users to choose whether Story is included in Share
 * Fix `CatalogIndex` types
 * [The next improvement]
 
