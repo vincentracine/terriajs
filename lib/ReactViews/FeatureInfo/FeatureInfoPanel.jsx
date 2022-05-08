@@ -322,6 +322,11 @@ class FeatureInfoPanel extends React.Component {
     const locationElements = (
       <If condition={position}>
         <li>{this.renderLocationItem(position)}</li>
+        <li>
+          <div className={Styles.location}>
+            <span>Population: 73,000</span>
+          </div>
+        </li>
       </If>
     );
     return (
