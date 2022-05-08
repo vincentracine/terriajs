@@ -332,7 +332,7 @@
     "noDataAvailable": "No data is available here - try another location.",
     "clickToAddData": "Click '$t(addData.addDataBtnText)' to add data to the map.",
     "userSelection": "User Selection",
-    "panelHeading": "Feature Information",
+    "panelHeading": "Map Feature Information",
     "btnCloseFeature": "Close data panel",
     "satelliteSuggestionBtn": "Show {{catalogItemName}} at this location",
     "locationMarker": "Location Marker",
